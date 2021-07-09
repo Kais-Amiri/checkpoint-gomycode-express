@@ -22,16 +22,6 @@ const _isAvailable = (req, res, next) => {
 app.use(_isAvailable);
 
 app.use(express.static(path.join(__dirname, "src", "webpages")));
-// app.get("/", (req, res)=>{
-//     res.sendFile(path.join(__dirname, "webPages","home.html" ))
-//  })
-// app.get("/services", (req, res)=>{
-//     res.sendFile(path.join(__dirname, "webPages","service.html" ))
-//     })
-
-// app.get("/contact", (req, res)=>{
-//     res.sendFile(path.join(__dirname, "webPages","contact.html" ))
-//     })
 
 app.listen(8080, (err) => {
   if (err) {
