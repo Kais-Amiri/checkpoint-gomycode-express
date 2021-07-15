@@ -26,9 +26,7 @@ const _isAvailable = (req, res, next) => {
 app.use(_isAvailable);
 
 app.use(express.static(path.join(__dirname, "src", "webpages")));
-app.use((req, res) =>
-  res.sendFile(path.join(__dirname, "src", "webpages", "pageNotFound.html"))
-);
+
 app.listen(8080, (err) => {
   if (err) {
     throw err;
@@ -36,3 +34,17 @@ app.listen(8080, (err) => {
     console.log("server running on port 8080");
   }
 });
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "src", "webPages", "index.html"));
+});
+app.get("/services", (req, res) => {
+  res.sendFile(path.join(__dirname, "src", "webPages", "services.html"));
+});
+app.get("/contact", (req, res) => {
+  res.sendFile(path.join(__dirname, "src", "webPages", "contact.html"));
+});
+
+app.use((req, res) =>
+  res.sendFile(path.join(__dirname, "src", "webpages", "pageNotFound.html"))
+);
